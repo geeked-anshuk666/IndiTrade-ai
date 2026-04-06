@@ -1,0 +1,11 @@
+.env
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+.kilocode/
+.agent/
+docs/
+meta_docs/
+node_modules/
