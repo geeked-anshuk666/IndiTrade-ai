@@ -54,8 +54,11 @@ def test_flow():
             print(report_resp.text[:500] + "...")
             print("--- END PREVIEW ---\n")
             
-            # Save the report
-            filename = f"test_{sector}_report.md"
+            # Save the report in test/results/
+            results_dir = os.path.join(os.path.dirname(__file__), "results")
+            os.makedirs(results_dir, exist_ok=True)
+            
+            filename = os.path.join(results_dir, f"test_{sector}_report.md")
             with open(filename, "w", encoding="utf-8") as f:
                 f.write(report_resp.text)
             print(f"Full report saved to: {os.path.abspath(filename)}")
