@@ -11,14 +11,14 @@ IndiTrade-ai is a production-grade FastAPI service that answers the critical que
 
 ---
 
-## 🚀 Live Demo & API Documentation
-👉 **[Launch Interactive Swagger UI (Render)](https://trade-opportunities-api-64pk.onrender.com/docs)**
+## Live Demo & API Documentation
+👉 **[Launch Demo (Render)](https://trade-opportunities-api-64pk.onrender.com/docs)**
 > **Note:** On the Render free tier, the first request may take ~30 seconds for the instance to "wake up" (cold start). Subsequent requests are instant.
 
 ---
 
-## 📋 Assignment Requirements Checklist
-This project fulfills and exceeds all requirements for the "Trade Opportunities API" assessment:
+## Features Checklist
+
 
 | Requirement | Implementation Detail | Status |
 | :--- | :--- | :---: |
@@ -35,7 +35,18 @@ This project fulfills and exceeds all requirements for the "Trade Opportunities 
 
 ---
 
-## 🛡️ Getting Started (Local Development)
+## Tech Stack
+
+- **Core Framework**: [FastAPI](https://fastapi.tiangolo.com/) (Python 3.13) - Chosen for its industry-leading performance, native `asyncio` support, and automatic OpenAPI documentation.
+- **AI Engine**: [Google Gemini 3.1 Preview](https://aistudio.google.com/) - High-context generative model optimized for structured trade analysis with custom retry logic for high availability.
+- **Search Engine**: [DDGS](https://pypi.org/project/duckduckgo-search/) - A robust, no-key-required wrapper for real-time market data extraction from DuckDuckGo.
+- **Security & Auth**: [python-jose](https://pypi.org/project/python-jose/) (JWT) & [slowapi](https://slowapi.readthedocs.io/) - Implementing stateless HS256 authentication and granular rate-limiting (per-IP and per-client).
+- **Data Validation**: [Pydantic v2](https://docs.pydantic.dev/latest/) - Type-safe configuration management and strict input sanitation to prevent prompt injection.
+- **Deployment**: [Docker](https://www.docker.com/) & [Render](https://render.com/) - Containerized for consistency across environments with automated `render.yaml` orchestration.
+
+---
+
+## Getting Started (Local Development)
 
 ### 1. Pre-requisites
 - **Python 3.11+** or **Docker Desktop**
@@ -67,9 +78,9 @@ Interact via **`http://127.0.0.1:8000/docs`**
 
 ---
 
-## 📖 How to Use (Evaluator Guide)
+## How to Use
 
-The API uses a **Guest JWT Flow**—no password is required, making it easy for reviewers to test.
+The API uses a **Guest JWT Flow**-no password is required, making it easy for reviewers to test.
 
 1.  **Authorize**: Go to the `/auth/token` endpoint. 
     - Click **"Try it out"**.
@@ -105,7 +116,7 @@ IndiTrade-ai/
 
 ---
 
-## ⚙️ Technical Architecture
+## Technical Architecture
 
 - **Search Service (`ddgs`)**: Performs targeted queries for "export opportunities" and "growth trends."
 - **AI Service (Gemini)**: Uses a 3-attempt exponential backoff retry mechanism to handle Gemini's free tier congestion (429/503 errors).
@@ -114,7 +125,7 @@ IndiTrade-ai/
 
 ---
 
-## 🔍 Verification
+## Verification
 You can run the full automated integration test with:
 ```bash
 python test/test_api_v3.py
@@ -123,5 +134,5 @@ This automatically tests the health check, gets a token, performs an analysis, a
 
 ---
 
-**Developed for the Trade Opportunities API hiring assessment.**  
+**Developed and maintained**  
 *By [anshuk jirli](https://github.com/geeked-anshuk666)*
